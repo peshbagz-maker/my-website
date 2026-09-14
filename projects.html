@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects Patience Baguma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Patience Baguma</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="page-header">
+    <p class="label">work</p>
+    <h1>Things I've <strong>built.</strong></h1>
+    <p>A selection of personal projects, freelance work, and open-source contributions.</p>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+    <button class="filter-btn" onclick="filterProjects('fullstack', this)">Full-Stack</button>
+    <button class="filter-btn" onclick="filterProjects('frontend', this)">Frontend</button>
+    <button class="filter-btn" onclick="filterProjects('backend', this)">Backend</button>
+  </div>
+
+  <div class="projects-list">
+
+    <div class="project-full" data-cat="fullstack">
+      <div class="project-meta">
+        <span class="project-type">Full-Stack</span>
+        <span class="project-year">2025</span>
+      </div>
+      <h2>TaskFlow Project Management App</h2>
+      <p>A lightweight team task manager with real-time updates, drag-and-drop Kanban boards, and role-based permissions. Designed for small teams who need clarity without a bloated tool. Features live collaboration via WebSockets and a REST API consumed by the React frontend.</p>
+      <div class="tech-row">
+        <span class="tech-pill">React</span>
+        <span class="tech-pill">Node.js</span>
+        <span class="tech-pill">PostgreSQL</span>
+        <span class="tech-pill">WebSockets</span>
+        <span class="tech-pill">Docker</span>
+      </div>
+      <div class="project-links">
+        <a href="#">Live demo</a>
+        <a href="#" class="secondary">GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-full" data-cat="fullstack">
+      <div class="project-meta">
+        <span class="project-type">Full-Stack</span>
+        <span class="project-year">2025</span>
+      </div>
+      <h2>Shelfmate Book Tracker &amp; Marketplace</h2>
+      <p>A personal reading tracker with a built-in peer-to-peer marketplace for buying and selling used books. Handles Stripe payments, inventory management, and reading statistics on a single platform. Server-side rendering with Next.js keeps it fast and SEO-friendly.</p>
+      <div class="tech-row">
+        <span class="tech-pill">Next.js</span>
+        <span class="tech-pill">Tailwind CSS</span>
+        <span class="tech-pill">Stripe</span>
+        <span class="tech-pill">Prisma</span>
+        <span class="tech-pill">PostgreSQL</span>
+      </div>
+      <div class="project-links">
+        <a href="#">Live demo</a>
+        <a href="#" class="secondary">GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-full" data-cat="backend">
+      <div class="project-meta">
+        <span class="project-type">Backend</span>
+        <span class="project-year">2024</span>
+      </div>
+      <h2>PulseAPI Uptime Monitor</h2>
+      <p>A self-hosted uptime monitoring service that pings HTTP endpoints on a configurable schedule, logs response times to a time-series store, and fires alerts via email or Slack webhook when a service goes down or degrades. Deployed with a single Docker Compose file.</p>
+      <div class="tech-row">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">FastAPI</span>
+        <span class="tech-pill">Redis</span>
+        <span class="tech-pill">Docker</span>
+        <span class="tech-pill">Celery</span>
+      </div>
+      <div class="project-links">
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-full" data-cat="frontend">
+      <div class="project-meta">
+        <span class="project-type">Frontend</span>
+        <span class="project-year">2024</span>
+      </div>
+      <h2>Clarity Markdown Notes Editor</h2>
+      <p>A distraction-free, browser-based Markdown editor with live preview, keyboard shortcuts, and local-storage persistence. No backend, no account required just open and write. Built to be fast and keyboard-navigable from top to bottom.</p>
+      <div class="tech-row">
+        <span class="tech-pill">Vanilla JS</span>
+        <span class="tech-pill">CSS</span>
+        <span class="tech-pill">Marked.js</span>
+      </div>
+      <div class="project-links">
+        <a href="#">Live demo</a>
+        <a href="#" class="secondary">GitHub</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 Patience Baguma &nbsp;·&nbsp; Built by hand
+</footer>
+
+<script>
+  function filterProjects(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.project-full').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+</body>
+</html>
