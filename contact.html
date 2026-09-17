@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Patience Baguma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F8F8F6;
+      --surface: #FFFFFF;
+      --ink: #1A1A18;
+      --ink-soft: #6B6B66;
+      --accent: #2563EB;
+      --rule: #E4E4E0;
+      --error: #DC2626;
+      --success: #16A34A;
+      --mono: 'dafont', monospace;
+      --sans: 'dafont', sans-serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(248,248,246,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      z-index: 100;
+      padding: 0 2rem;
+      height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.875rem;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    .nav-links a.active { font-weight: 500; }
+
+    main { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+
+    .page-header {
+      padding: 120px 0 56px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .page-header .label {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      letter-spacing: 0.04em;
+    }
+    .page-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .page-header h1 strong { font-weight: 500; }
+    .page-header p {
+      color: var(--ink-soft);
+      font-size: 1rem;
+      max-width: 52ch;
+    }
+
+    /* TWO-COL LAYOUT */
+    .contact-body {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      padding: 3rem 0 4rem;
+    }
+
+    /* LEFT COLUMN */
+    .contact-info h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+    .info-row {
+      margin-bottom: 1.5rem;
+    }
+    .info-row .info-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.04em;
+    }
+    .info-row a, .info-row span {
+      font-size: 0.9rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .info-row a {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: border-color 0.15s;
+    }
+    .info-row a:hover { border-color: var(--ink); }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--success);
+      margin-top: 2rem;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid #BBF7D0;
+      border-radius: 3px;
+      background: #F0FDF4;
+    }
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--success);
+    }
+
+    /* FORM */
+    .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .field label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.03em;
+    }
+    .field input, .field textarea, .field select {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--ink);
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 0.65rem 0.875rem;
+      outline: none;
+      transition: border-color 0.15s;
+      width: 100%;
+    }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      border-color: var(--accent);
+    }
+    .field textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+
+    .btn-submit {
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.7rem 1.5rem;
+      background: var(--ink);
+      color: var(--bg);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.15s;
+      align-self: flex-start;
+    }
+    .btn-submit:hover { background: #333330; }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .form-feedback {
+      font-size: 0.85rem;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      display: none;
+    }
+    .form-feedback.success {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      color: var(--success);
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--ink-soft);
+      border-top: 1px solid var(--rule);
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1rem; }
+      main { padding: 0 1.25rem; }
+      .contact-body { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Patience Baguma</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="page-header">
+    <p class="label">contact</p>
+    <h1>Let's <strong>work together.</strong></h1>
+    <p>I'm open to freelance projects, full-time roles, and interesting collaborations. Reach out and I'll get back to you within a day.</p>
+  </div>
+
+  <div class="contact-body">
+    <!-- LEFT -->
+    <div class="contact-info">
+      <h2>Get in touch</h2>
+
+      <div class="info-row">
+        <p class="info-label">email</p>
+        <a href="mailto:peshbagz@gmail.com">peshbagz@gmail.com</a>
+      </div>
+      <div class="info-row">
+        <p class="info-label">github</p>
+        <a href="https://github.com/peshbagz-maker" target="_blank">https://github.com/peshbagz-maker</a>
+      </div>
+      <div class="info-row">
+        <p class="info-label">location</p>
+        <span>Kampala, Uganda</span>
+      </div>
+
+      <div class="availability">
+        <span class="dot"></span>
+        Available for work
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div>
+      <div class="contact-form" id="contactForm">
+        <div class="field">
+          <label for="name">name</label>
+          <input type="text" id="name" placeholder="Your name" />
+        </div>
+        <div class="field">
+          <label for="email">email</label>
+          <input type="email" id="email" placeholder="your@email.com" />
+        </div>
+        <div class="field">
+          <label for="subject">subject</label>
+          <select id="subject">
+            <option value="">Select a topic</option>
+            <option>Freelance project</option>
+            <option>Full-time opportunity</option>
+            <option>Open-source collaboration</option>
+            <option>General hello</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">message</label>
+          <textarea id="message" placeholder="Tell me about your project or idea…"></textarea>
+        </div>
+        <button class="btn-submit" id="submitBtn" onclick="handleSubmit()">Send message</button>
+        <div class="form-feedback" id="formFeedback">
+          Message sent I'll be in touch soon.
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 Patience Baguma &nbsp;·&nbsp; Built by hand
+</footer>
+
+<script>
+  function handleSubmit() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !message) {
+      alert('Please fill in your name, email, and message.');
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    setTimeout(() => {
+      btn.style.display = 'none';
+      document.getElementById('formFeedback').classList.add('success');
+      // Clear fields
+      ['name','email','message'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('subject').selectedIndex = 0;
+    }, 900);
+  }
+</script>
+</body>
+</html>
